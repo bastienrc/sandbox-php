@@ -1,0 +1,55 @@
+/* Global */
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout */
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  background-color: aliceblue;
+  padding: 3rem;
+  border-radius: 20px;
+}
+
+h1 {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+/* Main Nav */
+#main-nav {
+  margin-bottom: 3rem;
+}
+
+#main-nav ul {
+  display: flex;
+  align-items: flex-end;
+  background-color: rgb(201, 127, 18);
+}
+
+#main-nav a {
+  text-decoration: none;
+}
+
+#main-nav li {
+  padding: 5px;
+  list-style: none;
+  background-color: bisque;
+  margin: 5px;
+}
+
+/* Home */
+#sword {
+  width: 30%;
+  float: left;
+}
+
+/* Films */
+#info {
+  width: 70%;
+  float: right;
+}
