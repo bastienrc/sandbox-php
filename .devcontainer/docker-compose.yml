@@ -23,11 +23,12 @@ services:
     image: mariadb:10.4
     container_name: db
     restart: unless-stopped
+    command: --init-file /data/application/mediatheque.sql
     volumes:
+      - ./mediatheque.sql:/data/application/mediatheque.sql
       - mariadb-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: mariadb
-      MYSQL_DATABASE: mariadb
       MYSQL_USER: mariadb
       MYSQL_PASSWORD: mariadb
 
