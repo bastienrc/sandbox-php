@@ -1,9 +1,16 @@
 /* Global */
-*, ::before, ::after {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background: linear-gradient(to right, #233329 0%, #63D471 100%);
+}
+
 
 /* Layout */
 .container {
@@ -28,18 +35,25 @@ h1 {
 #main-nav ul {
   display: flex;
   align-items: flex-end;
-  background-color: rgb(201, 127, 18);
 }
 
 #main-nav a {
+  display: block;
   text-decoration: none;
+  color: whitesmoke;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px;
+  margin: 10px;
+}
+
+#main-nav a:hover {
+  background: whitesmoke;
+  color: #333;
+  border-radius: 0 10px 0 10px;
 }
 
 #main-nav li {
-  padding: 5px;
   list-style: none;
-  background-color: bisque;
-  margin: 5px;
 }
 
 /* Home */
