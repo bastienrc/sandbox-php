@@ -45,7 +45,8 @@ h1 {
 /* Home */
 #sword {
   width: 30%;
-  float: left;
+  margin-left: 50%;
+  transform: translate(-50%);
 }
 
 /* Films */
