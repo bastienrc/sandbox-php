@@ -50,7 +50,8 @@ h1 {
 }
 
 /* Films */
-#info {
-  width: 70%;
-  float: right;
+#info ul {
+  list-style: '🎬 ';
+  line-height: 1.75;
+  padding-left: 2rem;
 }
