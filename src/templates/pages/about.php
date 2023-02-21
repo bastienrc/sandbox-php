@@ -3,9 +3,11 @@ $title = "À Propos";
 ob_start();
 ?>
 
-<h1>À Propos</h1>
+<div class="container">
+  <h1>À Propos</h1>
 
-<p>Bac à sable pour le PHP.</p>
+  <p>Bac à sable pour le PHP.</p>
+</div>
 
 <?php
 $content = ob_get_clean();

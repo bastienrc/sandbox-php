@@ -15,7 +15,7 @@
     <?php require_once dirname(__DIR__) . '/templates/components/nav.php'; ?>
   </header>
 
-  <div class="container"><?= $content ?></div>
+  <?= $content ?>
 
 </body>
 
