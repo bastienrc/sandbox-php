@@ -3,10 +3,13 @@ $title = "À Propos";
 ob_start();
 ?>
 
-<div class="container">
+<div class="container-large">
   <h1>À Propos</h1>
-
   <p>Bac à sable pour le PHP.</p>
+  <br>
+  <hr>
+  <br>
+  <?php embedded_phpinfo() ?>
 </div>
 
 <?php
