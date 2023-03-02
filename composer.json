@@ -1,0 +1,12 @@
+{
+    "name": "bastienrc/sandbox-php",
+    "description": "Bac à sable pour jouer avec PHP",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bastienrc\\SandboxPhp\\": "src/"
+        }
+    },
+    "require": {}
+}

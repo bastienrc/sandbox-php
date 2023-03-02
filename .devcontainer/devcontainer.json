@@ -21,7 +21,8 @@
 				"ecmel.vscode-html-css",
 				"formulahendry.vscode-mysql",
 				"christian-kohler.path-intellisense",
-				"redhat.vscode-yaml"
+				"redhat.vscode-yaml",
+				"Tyriar.sort-lines"
 			]
 		}
 	},
@@ -30,6 +31,7 @@
 	"postCreateCommand": "php -S localhost:8000 -t public",
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
+		"docker-from-docker": "20.10",
 		"git": "os-provided"
 	}
 }
