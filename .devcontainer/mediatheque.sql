@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : mar. 21 fév. 2023 à 09:08
+-- Généré le : ven. 03 mars 2023 à 20:48
 -- Version du serveur : 10.4.28-MariaDB-1:10.4.28+maria~ubu2004
 -- Version de PHP : 8.1.16
 
@@ -59,7 +59,7 @@ DROP TABLE IF EXISTS `minichat`;
 CREATE TABLE `minichat` (
   `ID` int(11) UNSIGNED NOT NULL,
   `date` datetime NOT NULL,
-  `pseudo` varchar(100) NOT NULL,
+  `user_ID` varchar(100) NOT NULL,
   `message` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -67,15 +67,40 @@ CREATE TABLE `minichat` (
 -- Déchargement des données de la table `minichat`
 --
 
-INSERT INTO `minichat` (`ID`, `date`, `pseudo`, `message`) VALUES
-(1, "2015-11-01 19:32:49", "Bruce", "Bonjour, je m'appelle Bruce Wayne, je suis de Gotham."),
-(2, "2015-11-01 19:34:22", "Clark", "Bonjour, Je m'appelle Clark Kent, Je suis de Smallville mais actuellement je vis à Métropolis."),
-(3, "2015-11-01 19:36:43", "Clark", "Non, je déconne je suis Kal-El de la planète Kripton mais je suis plus connu comme Superman."),
-(4, "2015-11-01 19:38:43", "Barry", "Salut, Batman, salut Superman, cela vous dis de monter une petite association ?"),
-(5, "2015-11-01 19:39:44", "Barry", "On l'appellerait « La Ligue des Justiciers », ok ? Génial ! A plus."),
-(6, "2015-11-01 19:40:56", "Bruce", "Je pense que m'ont secret est découvert"),
-(7, "2015-11-01 19:41:50", "Bruce", "Avenger, Rassemblement "),
-(8, "2015-11-01 19:43:53", "Clark", "Euh ... Bruce, tu te trompe de Comics !");
+INSERT INTO `minichat` (`ID`, `date`, `user_ID`, `message`) VALUES
+(1, "2015-11-01 19:32:49", 1, "Bonjour, je m'appelle Bruce Wayne, je suis de Gotham."),
+(2, "2015-11-01 19:34:22", 2, "Bonjour, Je m'appelle Clark Kent, Je suis de Smallville mais actuellement je vis à Métropolis."),
+(3, "2015-11-01 19:36:43", 2, "Non, je déconne je suis Kal-El de la planète Kripton mais je suis plus connu comme Superman."),
+(4, "2015-11-01 19:38:43", 3, "Salut, Batman, salut Superman, cela vous dis de monter une petite association ?"),
+(5, "2015-11-01 19:39:44", 3, "On l'appellerait « La Ligue des Justiciers », ok ? Génial ! A plus."),
+(6, "2015-11-01 19:40:56", 1, "Je pense que m'ont secret est découvert"),
+(7, "2015-11-01 19:41:50", 1, "Avenger, Rassemblement "),
+(8, "2015-11-01 19:43:53", 2, "Euh ... Bruce, tu te trompe de Comics !");
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `ID` int(11) UNSIGNED NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `pseudo` varchar(100) NOT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  `modified_at` date DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`ID`, `email`, `password`, `pseudo`) VALUES
+(1, "bruce.wayne@gmail.com", "123456", "bruce"),
+(2, "clark.kent@gmail.com", "123456", "clark"),
+(3, "barry.alen@gmail.com", "123456", "barry");
 
 -- --------------------------------------------------------
 
@@ -166,14 +191,22 @@ ALTER TABLE `films`
 --
 ALTER TABLE `minichat`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID` (`ID`);
+  ADD UNIQUE KEY `ID` (`ID`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Index pour la table `videogames`
 --
 ALTER TABLE `videogames`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID` (`ID`);
+  ADD UNIQUE KEY `ID` (`ID`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -190,6 +223,13 @@ ALTER TABLE `films`
 --
 ALTER TABLE `minichat`
   MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `videogames`
