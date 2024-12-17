@@ -1,37 +1,42 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/php-mariadb
 {
-	"name": "Sandbox PHP",
-	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	"forwardPorts": [
-		8000,
-		8080,
-		3306
-	],
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"bierner.emojisense",
-				"ahmadawais.emoji-log-vscode",
-				"waderyan.gitblame",
-				"mhutchie.git-graph",
-				"lamartire.git-indicators",
-				"ecmel.vscode-html-css",
-				"formulahendry.vscode-mysql",
-				"christian-kohler.path-intellisense",
-				"redhat.vscode-yaml",
-				"Tyriar.sort-lines"
-			]
-		}
-	},
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
-	"postCreateCommand": "php -S localhost:8000 -t public",
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	"features": {
-		"docker-from-docker": "20.10",
-		"git": "os-provided"
-	}
+  "name": "Sandbox PHP",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [
+    "dev:8000",
+    "db:3306"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bierner.emojisense",
+        "ahmadawais.emoji-log-vscode",
+        "waderyan.gitblame",
+        "mhutchie.git-graph",
+        "lamartire.git-indicators",
+        "ecmel.vscode-html-css",
+        "formulahendry.vscode-mysql",
+        "christian-kohler.path-intellisense",
+        "redhat.vscode-yaml",
+        "Tyriar.sort-lines",
+        "EditorConfig.EditorConfig",
+        "bmewburn.vscode-intelephense-client",
+        "xdebug.php-debug"
+      ]
+    }
+  },
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
+  "postCreateCommand": "php -S localhost:8000 -t public",
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers/features/docker-from-docker:1.6.0": {
+      "version": "27"
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "os-provided"
+    }
+  }
 }
