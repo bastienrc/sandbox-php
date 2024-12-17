@@ -15,6 +15,8 @@
     <?php require_once dirname(__DIR__) . '/templates/components/nav.php'; ?>
   </header>
 
+  <?= $notif ?>
+
   <?= $content ?>
 
 </body>
